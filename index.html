@@ -14,10 +14,14 @@
     <div id="app">
         <input type="text" v-model="school.name">
         <div>{{school.name}}</div>
+        <div>{{school.age}}</div>
+        {{getNewName}}
         <ul>
             <li>1</li>
             <li>2</li>
         </ul>
+        <button v-on:click="change">更新</button>
+        <div v-html="msg"></div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
     <script src="./MVVM.js"></script>
@@ -26,11 +30,22 @@
             el: '#app',
             data: {
                 school: {
-                    name: "社会"
+                    name: "社会",
+                    age: 18
+                },
+                name: "xiao",
+                msg: '<h1>hello world</h1>'
+            },
+            computed: {
+                getNewName() {
+                    return this.school.name + 'xixi'
                 }
             },
-            computed: {},
-            methods: {}
+            methods: {
+                change() {
+                    this.school.name = "test"
+                }
+            }
         })
     </script>
 </body>
