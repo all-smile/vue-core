@@ -21,7 +21,7 @@ class Dep {
 
 // 观察者 (发布订阅) -> 里面存放被观察者
 // vm.$watch(vm, 'school', (newV) => {})
-class Watcher {
+/* class Watcher {
   constructor(vm, expr, cb) {
     this.vm = vm
     this.expr = expr
@@ -43,10 +43,10 @@ class Watcher {
       this.cb(newV)
     }
   }
-}
+} */
 
 // 实现数据劫持
-class Observer {
+/* class Observer {
   constructor(data) {
     this.observer(data)
   }
@@ -77,9 +77,9 @@ class Observer {
       }
     })
   }
-}
+} */
 
-class Compiler {
+/* class Compiler {
   constructor(el, vm) {
     this.vm = vm
     this.el = this.isElementNode(el) ? el : document.querySelector(el)
@@ -145,7 +145,7 @@ class Compiler {
   isElementNode(node) {
     return node.nodeType === 1
   }
-}
+} */
 
 // 编译工具（策略模式处理）
 CompileUtil = {
@@ -232,9 +232,7 @@ class Vue {
       // 1、数据劫持（属性转化）
       new Observer(this.$data)
 
-
-
-      // 3、处理 computed (有依赖关系)
+      // 2、处理 computed (有依赖关系)
       // {{getNewName}} reduce vm.$data.getNewName
       for (const key in computed) {
         Object.defineProperty(this.$data, key, {
@@ -251,9 +249,9 @@ class Vue {
           },
         })
       }
-      // 4、数据代理，属性穿透，this.$data.xxx -> this.xxx
+      // 3、数据代理，属性穿透，this.$data.xxx -> this.xxx
       this.proxyVm(this.$data)
-      // 2、编译器
+      // 4、编译器
       new Compiler(this.$el, this)
     }
   }
