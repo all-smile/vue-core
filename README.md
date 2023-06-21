@@ -1,24 +1,15 @@
 # vue-core
 
 #### 介绍
-js实现vue核心功能
+javascript实现vue核心功能MVVM，深入响应式原理
 
-#### 软件架构
-软件架构说明
+#### 目录
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
+    |-- core
+    | |-- compile.js         # 编译器，实现vue的指令、规则，挂载到Dom节点上
+    | |-- MVVM.js            # 基类 调度
+    | |-- observer.js        # 实现数据劫持
+    | |-- watcher.js         # 观察者
 #### 参与贡献
 
 1.  Fork 本仓库
