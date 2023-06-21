@@ -12,22 +12,26 @@
 
 <body>
     <div id="app">
+        <h3>javascript实现vue核心功能MVVM，深入响应式原理</h3>
         <input type="text" v-model="school.name">
-        <div>{{school.name}}</div>
-        <div>{{school.age}}</div>
+        <div>双向绑定input: {{school.name}}</div>
+        <div>插入一个data属性值: {{school.age}}</div>
         {{getNewName}}
         <ul>
             <li>1</li>
             <li>2</li>
         </ul>
         <button v-on:click="change">更新</button>
-        <div v-html="msg"></div>
+        <div>
+            下面是一个 v-html 指令
+            <div v-html="msg"></div>
+        </div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
-    <script src="./watcher.js"></script>
-    <script src="./observer.js"></script>
-    <script src="./compile.js"></script>
-    <script src="./MVVM.js"></script>
+    <script src="./core/watcher.js"></script>
+    <script src="./core/observer.js"></script>
+    <script src="./core/compile.js"></script>
+    <script src="./core/MVVM.js"></script>
     <script>
         let vm = new Vue({
             el: '#app',
@@ -41,7 +45,7 @@
             },
             computed: {
                 getNewName() {
-                    return this.school.name + 'xixi'
+                    return `这是一个computed属性(getNewName): ${this.school.name} xixi`
                 }
             },
             methods: {

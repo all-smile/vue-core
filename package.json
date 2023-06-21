@@ -4,6 +4,8 @@
   "description": "js实现vue核心功能",
   "main": "index.js",
   "scripts": {
+    "pull": "git pull github master && git pull gitee master",
+    "push": "git push github master && git push gitee master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
